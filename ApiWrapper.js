@@ -83,7 +83,7 @@ const unSetApiHeader = () => {
 }
 
 const setApiHeader = async () => {
-    axios.defaults.headers.common['Authorization'] = 'Bearer ' + (await getUserAccessToken())
+    axios.defaults.headers.common['Authorization'] = 'Bearer ' + ('USER_TOKEN_HERE')
 }
 
 const setFormDataHeader = async () => {
