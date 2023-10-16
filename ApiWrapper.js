@@ -3,12 +3,12 @@ import { getAccessToken } from "./asyncStorage";
 
 axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 
-const setApiHeader = async () => {
-  axios.defaults.headers.common.Authorization = `Bearer ${await getAccessToken()}`;
-};
-
-const unSetApiHeader = () => {
-  delete axios.defaults.headers.common.Authorization;
+const setApiHeader = async (withAuth) => {
+  if (withAuth) {
+    axios.defaults.headers.common.Authorization = `Bearer ${await getAccessToken()}`;
+  } else {
+    delete axios.defaults.headers.common.Authorization;
+  }
 };
 
 const handleRequest = async (
@@ -18,23 +18,19 @@ const handleRequest = async (
   config = {},
   withAuth
 ) => {
-  if (withAuth) {
-    await setApiHeader();
-  } else {
-    unSetApiHeader();
-  }
+  setApiHeader(withAuth);
   try {
     const res = await axios.request({
       method,
       url,
       data: body,
-      ...config
+      ...config,
     });
     return { data: res.data.data, isError: false };
   } catch (err) {
     return {
       error: err.response.data,
-      isError: true
+      isError: true,
     };
   }
 };
