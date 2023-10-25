@@ -18,8 +18,8 @@ const handleRequest = async (
   config = {},
   withAuth
 ) => {
-  setApiHeader(withAuth);
   try {
+    await setApiHeader(withAuth);
     const res = await axios.request({
       method,
       url,
