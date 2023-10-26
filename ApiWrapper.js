@@ -26,7 +26,7 @@ const handleRequest = async (
       data: body,
       ...config,
     });
-    return { data: res.data.data, isError: false };
+    return { data: res.data, isError: false };
   } catch (err) {
     return {
       error: err.response.data,
