@@ -55,8 +55,5 @@ The wrappers return an object in the following format:
 ```
 ## Contributing
 Feel free to fork the repository and make improvements or add more functionalities.
-```bash
-Make sure to adjust the "path-to-your-module" placeholders based on your actual directory structure. Once you've added this to your GitHub repository as a `README.md`, it should render correctly with the proper formatting.
-```
 
 
