@@ -23,11 +23,15 @@ await setApiHeader(withAuth);
 2. Making API Calls
 You can use the exported functions to make API calls:
 
-POST(url, body, config, withAuth)
-PATCH(url, body, withAuth)
-GET(url, query, withAuth)
-DELETE(url, withAuth)
-withAuth is a boolean value indicating whether the request should be authenticated. It defaults to true.
+> POST(url, body, config, withAuth)
+
+> PATCH(url, body, withAuth)
+
+> GET(url, query, withAuth)
+
+> DELETE(url, withAuth)
+
+```withAuth``` is a boolean value indicating whether the request should be authenticated. It defaults to true.
 Example:
 ```bash
 import { POST, GET } from "path-to-your-module";
